@@ -10,6 +10,7 @@ module.exports = {
   schema: true,
 
   attributes: {
+
     name: {
       type: 'string',
       required: true,
@@ -23,13 +24,33 @@ module.exports = {
     state: {
       type: 'string'
     },
+    zip: {
+      type: 'string'
+    },
     email: {
       type: 'string',
       email: true
     },
-
+    home_phone: {
+      type: 'string'
+    },
+    cellphone: {
+      type: 'string'
+    },
+    /*
+    created: {
+      type: ??
+    },
+    modified: {
+      type: ??
+     },
+    */
     stocks: {
       collection: 'stock',
+      via: 'owner'
+    },
+    investments: {
+      collection: 'investment'
       via: 'owner'
     }
 
