@@ -13,10 +13,10 @@ module.exports = {
 
     name: {
       type: 'string',
-      required: true,
+      required: true
     },
     street_address: {
-      type: 'string',
+      type: 'string'
     },
     city: {
       type: 'string'
@@ -37,20 +37,18 @@ module.exports = {
     cellphone: {
       type: 'string'
     },
-    /*
     created: {
-      type: ??
+      type: 'string'  //type for holding date??
     },
     modified: {
-      type: ??
+      type: 'string' //type for holding date??
      },
-    */
     stocks: {
       collection: 'stock',
       via: 'owner'
     },
     investments: {
-      collection: 'investment'
+      collection: 'investment',
       via: 'owner'
     }
 
