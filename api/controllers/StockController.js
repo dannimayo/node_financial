@@ -20,9 +20,52 @@ module.exports = {
     Stock.create(req.params.all(), function stockCreated(err, stock) {
       if (err) return next(err);
 
-      res.json(stock);
+      //res.json(stock);
+      res.redirect('/stock/show/' + stock.id);
+    });
+  },
+
+  show: function(req, res, next) {
+    Stock.findOne(req.param('id'), function foundStock(err, stock) {
+      if (err) return next(err);
+      if (!stock) return next();
+      res.view({
+        customer: customer //stock: stock  OR leave as 'customer: customer' ???
+      });
+    });
+  },
+
+  index: function(req, res, next) {
+    Stock.find(function foundStocks (err, stocks) {
+      if (err) return next(err);
+
+      res.view({
+        stocks: stocks
+      });
+    });
+  },
+
+  edit: function(req, res, next) {
+    Stock.findOne(req.param('id'), function foundStock(err, stock) {
+      if (err) return next(err);
+      if (!stock) return next();
+
+      res.view({
+        customer: customer
+      });
+    });
+  },
+
+  update: function(req, res, next) {
+    Stock.update(req.param('id'), req.params.all(), function stockUpdated(err){
+      if (err) {
+        return res.redirect('/stock/edit/' + req.param('id'));
+      }
+
+      res.redirect('/stock/show/' + req.param('id'));
     });
   }
+
 
 };
 

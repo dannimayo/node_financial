@@ -29,7 +29,7 @@ module.exports = {
     },
 
     date_purchased: {
-      type: 'string'     //type for holding date??
+      type: 'string'     //how to pull date of creation??
     },
 
     owner: {

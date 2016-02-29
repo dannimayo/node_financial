@@ -37,12 +37,15 @@ module.exports = {
     cellphone: {
       type: 'string'
     },
+
     created: {
-      type: 'string'  //type for holding date??
+      type: 'datetime'   //how do I pull createdAt time stamp
     },
+
     modified: {
-      type: 'string' //type for holding date??
-     },
+      type: 'datetime'    //how do I pull updatedAt time stamp
+    },
+
     stocks: {
       collection: 'stock',
       via: 'owner'

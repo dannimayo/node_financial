@@ -1,0 +1,22 @@
+<h3>Stocks for <%= customer.name %></h3>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% _.each(stocks, function(stock) { %>
+  <tr data-id="<%= stock.id %>" data-model="stock" >
+    <td><%= stock.id %></td>
+    <td><%= stock.name %></td>
+    <td><%= stock.symbol %></td>
+    <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
+    <td><a href="/stock/edit/<%= customer.id %>">Edit</a></td>
+    <td><a href="/stock/destroy/<%= customer.id %>">Delete</a></td>
+  </tr>
+  <% }) %>
+</table>

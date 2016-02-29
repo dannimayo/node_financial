@@ -1,7 +1,11 @@
 <h1><%= customer.name %></h1>
 <hr>
 <h3>Address: <%= customer.street_address %></h3>
-<h4><%= customer.city + ', ' + customer.state %></h4>
+<h3><%= customer.city + ', ' + customer.state + ', ' + customer.zip%></h3>
+<h3>Email: <%= customer.email %></h3>
+<h3>Home Phone: <%= customer.home_phone + '     Cellphone: ' + customer.cellphone%></h3>
+<h3>Created: <%= customer.created + '     Modified: ' + customer.modified %></h3>
+
 <form action="/stock/new" method="POST">
   <input type="hidden" value="<%= customer.id %>" name="owner" />
   <input type="submit" value="Add Stock" />
