@@ -1,0 +1,14 @@
+<form action="/investment/create" method="POST" >
+  <h2>Create a new Investment for <%= customer.name %></h2>
+
+  <input type="hidden" name="owner" value="<%- customer.id %>" />
+
+  <input type="text" placeholder="Category" name="category" ><br />
+  <input type="text" placeholder="Description" name="description" ><br />
+  <input type="float" placeholder="Acquired Value" name="acquired_value" ><br />
+  <input type="text" placeholder="Acquired Date" name="acquired_date" ><br />
+  <input type="float" placeholder="Recent Value" name="recent_value" ><br />
+  <input type="text" placeholder="Recent Date" name="recent_date" ><br />
+
+  <input type="submit" value="Add Investment" />
+</form>

@@ -1,0 +1,12 @@
+<h1><%= investment.category %></h1>
+<hr>
+<h3>Description: <%= investment.description %></h3>
+<h3>Acquired Value: <%= investment.acquired_value %></h3>
+<h3>Acquired Date: <%= investment.acquired_date %></h3>
+<h3>Recent Value: <%= investment.recent_value %></h3>
+<h3>Recent Date: <%= investment.recent_date %></h3>
+
+<form action="/investment/new" method="POST">
+  <input type="hidden" value="<%= investment.owner %>" name="owner" />
+  <input type="submit" value="Add Investment" />
+</form>

@@ -22,9 +22,9 @@
     <td><%= stock.number_of_shares %></td>
     <td><%= stock.price %></td>
     <td><%= stock.date_purchased %></td>
-    <td></td>
+
     <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
-    <td><a href="/stock/update/<%= stock.id %>">Edit</a></td>
+    <td><a href="/stock/edit/<%= stock.id %>">Edit</a></td>
     <td><a href="/stock/destroy/<%= stock.id %>">Delete</a></td>
   </tr>
   <% }); %>
@@ -34,4 +34,39 @@
 <form action="/stock/new" method="POST">
   <input type="hidden" value="<%= customer.id %>" name="owner" />
   <input type="submit" value="Add Stock" />
+</form>
+
+
+
+
+<h3> Investments </h3>
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Acquired Value</th>
+    <th>Acquired Date</th>
+    <th>Recent Value</th>
+    <th>Recent Date</th>
+  </tr>
+  <% _.each(customer.investments, function(investment) { %>
+  <tr data-id="<%= investment.id %>" data-model="investment" >
+    <td><%= investment.category %></td>
+    <td><%= investment.description %></td>
+    <td><%= investment.acquired_value %></td>
+    <td><%= investment.acquired_date %></td>
+    <td><%= investment.recent_value %></td>
+    <td><%= investment.recent_date %></td>
+
+    <td><a href="/investment/show/<%= investment.id %>">Show</a></td>
+    <td><a href="/investment/edit/<%= investment.id %>">Edit</a></td>
+    <td><a href="/investment/destroy/<%= investment.id %>">Delete</a></td>
+  </tr>
+  <% }); %>
+</table>
+
+
+<form action="/investment/new" method="POST">
+  <input type="hidden" value="<%= customer.id %>" name="owner" />
+  <input type="submit" value="Add Investment" />
 </form>
