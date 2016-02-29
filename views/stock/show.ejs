@@ -6,6 +6,6 @@
 <h3>Date of Purchase: <%= stock.date_purchased %></h3>
 
 <form action="/stock/new" method="POST">
-  <input type="hidden" value="<%= customer.id %>" name="owner" />
+  <input type="hidden" value="<%= stock.owner %>" name="owner" />
   <input type="submit" value="Add Stock" />
 </form>

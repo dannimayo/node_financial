@@ -6,6 +6,31 @@
 <h3>Home Phone: <%= customer.home_phone + '     Cellphone: ' + customer.cellphone%></h3>
 <h3>Created: <%= customer.created + '     Modified: ' + customer.modified %></h3>
 
+<h3> Stocks </h3>
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Number of Shares</th>
+    <th>Price</th>
+    <th>Date Purchased</th>
+  </tr>
+  <% _.each(customer.stocks, function(stock) { %>
+  <tr data-id="<%= stock.id %>" data-model="stock" >
+    <td><%= stock.symbol %></td>
+    <td><%= stock.name %></td>
+    <td><%= stock.number_of_shares %></td>
+    <td><%= stock.price %></td>
+    <td><%= stock.date_purchased %></td>
+    <td></td>
+    <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
+    <td><a href="/stock/update/<%= stock.id %>">Edit</a></td>
+    <td><a href="/stock/destroy/<%= stock.id %>">Delete</a></td>
+  </tr>
+  <% }); %>
+</table>
+
+
 <form action="/stock/new" method="POST">
   <input type="hidden" value="<%= customer.id %>" name="owner" />
   <input type="submit" value="Add Stock" />

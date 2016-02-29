@@ -11,7 +11,7 @@ module.exports = {
       if (err) return next(err);
       if (!customer) return next();
       res.view({
-        customer: customer
+        customer: customer      //shouldn't I change this all to stock?
       });
     });
   },
@@ -21,7 +21,7 @@ module.exports = {
       if (err) return next(err);
 
       //res.json(stock);
-      res.redirect('/stock/show/' + stock.id);
+      res.redirect('/customer/show/' + stock.owner);
     });
   },
 
@@ -30,7 +30,7 @@ module.exports = {
       if (err) return next(err);
       if (!stock) return next();
       res.view({
-        customer: customer //stock: stock  OR leave as 'customer: customer' ???
+        stock: stock //returning a stock for the stock view
       });
     });
   },
@@ -51,7 +51,7 @@ module.exports = {
       if (!stock) return next();
 
       res.view({
-        customer: customer
+        stock: stock
       });
     });
   },
