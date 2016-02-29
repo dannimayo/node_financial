@@ -15,8 +15,8 @@
     <td><%= stock.name %></td>
     <td><%= stock.symbol %></td>
     <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
-    <td><a href="/stock/edit/<%= customer.id %>">Edit</a></td>
-    <td><a href="/stock/destroy/<%= customer.id %>">Delete</a></td>
+    <td><a href="/stock/edit/<%= stock.id %>">Edit</a></td>
+    <td><a href="/stock/destroy/<%= stock.id %>">Delete</a></td>
   </tr>
   <% }) %>
 </table>

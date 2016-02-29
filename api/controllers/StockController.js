@@ -11,7 +11,7 @@ module.exports = {
       if (err) return next(err);
       if (!customer) return next();
       res.view({
-        customer: customer      //shouldn't I change this all to stock?
+        customer: customer    
       });
     });
   },
@@ -62,7 +62,13 @@ module.exports = {
         return res.redirect('/stock/edit/' + req.param('id'));
       }
 
-      res.redirect('/stock/show/' + req.param('id'));
+      res.redirect('/stock/update/' + req.param('id'));
+    });
+  },
+
+  destroy: function(req, res, next) {
+    Stock.destroy(req.param('id')).exec( function() {
+      res.redirect('/stock/');    //used to just be '/customer/'
     });
   }
 
