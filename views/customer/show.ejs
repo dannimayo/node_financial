@@ -53,8 +53,8 @@
     <th>Total Current Price</th>
   </tr>
 
-  <tr>
-
+  <% _.each(customer.stocks, function(stock) { %>
+  <tr data-id="<%= stock.id %>" data-model="stock" >
     <td></td>
     <td></td>
   </tr>
