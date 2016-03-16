@@ -25,11 +25,11 @@ module.exports = {
     },
 
     price: {
-      type: 'float'       //required??
+      type: 'float'
     },
 
     date_purchased: {
-      type: 'string'     //how to pull date of creation??
+      type: 'string'
     },
 
     owner: {

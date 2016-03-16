@@ -1,10 +1,12 @@
+
 <h1><%= customer.name %></h1>
 <hr>
 <h3>Address: <%= customer.street_address %></h3>
 <h3><%= customer.city + ', ' + customer.state + ', ' + customer.zip%></h3>
 <h3>Email: <%= customer.email %></h3>
 <h3>Home Phone: <%= customer.home_phone + '     Cellphone: ' + customer.cellphone%></h3>
-<h3>Created: <%= customer.created + '     Modified: ' + customer.modified %></h3>
+
+<hr>
 
 <h3> Stocks </h3>
 <table>
@@ -12,15 +14,22 @@
     <th>Symbol</th>
     <th>Name</th>
     <th>Number of Shares</th>
-    <th>Price</th>
+    <th>Price Purchased</th>
+    <th>Current Price</th>
+    <th>Comparison ( - symbolizes drop in value)</th>
     <th>Date Purchased</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% _.each(customer.stocks, function(stock) { %>
   <tr data-id="<%= stock.id %>" data-model="stock" >
     <td><%= stock.symbol %></td>
     <td><%= stock.name %></td>
     <td><%= stock.number_of_shares %></td>
-    <td><%= stock.price %></td>
+    <td><%= '$' + stock.price %></td>
+    <td><%= '$' + stock.current_price %></td>
+    <td><%= stock.current_price - stock.price %></td>
     <td><%= stock.date_purchased %></td>
 
     <td><a href="/stock/show/<%= stock.id %>">Show</a></td>
@@ -37,6 +46,24 @@
 </form>
 
 
+<table>
+  <tr>
+    <th>Total Number of Shares</th>
+    <th>Total Price Purchased</th>
+    <th>Total Current Price</th>
+  </tr>
+
+  <tr>
+
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+
+
+<hr>
 
 
 <h3> Investments </h3>
