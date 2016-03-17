@@ -1240,6 +1240,7 @@ h6 .small,
 .h4 .small,
 .h5 .small,
 .h6 .small {
+  align-items:center;
   font-weight: normal;
   line-height: 1;
   color: #777;
