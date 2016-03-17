@@ -22,6 +22,7 @@
     <th></th>
     <th></th>
   </tr>
+
   <% _.each(customer.stocks, function(stock) { %>
   <tr data-id="<%= stock.id %>" data-model="stock" >
     <td><%= stock.symbol %></td>
@@ -48,17 +49,19 @@
 
 <table>
   <tr>
-    <th>Total Number of Shares</th>
-    <th>Total Price Purchased</th>
-    <th>Total Current Price</th>
+    <th>Total Current Stock Price Summary</th>
   </tr>
 
+
+  <% var stock_total = 0 %>
   <% _.each(customer.stocks, function(stock) { %>
   <tr data-id="<%= stock.id %>" data-model="stock" >
-    <td></td>
-    <td></td>
-  </tr>
+    <% stock_total += stock.current_price * stock.number_of_shares %>
   <% }); %>
+  </tr>
+
+  <tr><td> <%= stock_total %></td></tr>
+
 </table>
 
 
@@ -76,6 +79,9 @@
     <th>Acquired Date</th>
     <th>Recent Value</th>
     <th>Recent Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
   <% _.each(customer.investments, function(investment) { %>
   <tr data-id="<%= investment.id %>" data-model="investment" >
@@ -98,3 +104,20 @@
   <input type="hidden" value="<%= customer.id %>" name="owner" />
   <input type="submit" value="Add Investment" />
 </form>
+
+<table>
+  <tr>
+    <th>Total Current Investment Price Summary</th>
+  </tr>
+
+
+  <% var investment_total = 0 %>
+  <% _.each(customer.investments, function(investment) { %>
+  <tr data-id="<%= investment.id %>" data-model="investment" >
+    <% investment_total += investment.recent_value %>
+    <% }); %>
+  </tr>
+
+  <tr><td> <%= investment_total %></td></tr>
+
+</table>
