@@ -50,17 +50,23 @@
 <table>
   <tr>
     <th>Total Current Stock Price Summary</th>
+    <th>Total Number of Shares Owned</th>
   </tr>
 
 
   <% var stock_total = 0 %>
+  <% var stock_totalShares = 0 %>
   <% _.each(customer.stocks, function(stock) { %>
   <tr data-id="<%= stock.id %>" data-model="stock" >
     <% stock_total += stock.current_price * stock.number_of_shares %>
+    <% stock_totalShares += stock.number_of_shares %>
   <% }); %>
   </tr>
 
-  <tr><td> <%= stock_total %></td></tr>
+  <tr>
+    <td> <%= stock_total %></td>
+    <td> <%= stock_totalShares %></td>
+  </tr>
 
 </table>
 
@@ -107,17 +113,23 @@
 
 <table>
   <tr>
-    <th>Total Current Investment Price Summary</th>
+    <th>Total Acquired Value Summary</th>
+    <th>Total Recent Value Summary</th>
   </tr>
 
 
+  <% var investment_acqTotal = 0 %>
   <% var investment_total = 0 %>
   <% _.each(customer.investments, function(investment) { %>
   <tr data-id="<%= investment.id %>" data-model="investment" >
+    <% investment_acqTotal += investment.acquired_value %>
     <% investment_total += investment.recent_value %>
     <% }); %>
   </tr>
 
-  <tr><td> <%= investment_total %></td></tr>
+  <tr>
+    <td> <%= investment_acqTotal %></td>
+    <td> <%= investment_total %></td>
+  </tr>
 
 </table>
